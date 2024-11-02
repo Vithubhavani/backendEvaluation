@@ -12,6 +12,8 @@ const app = express();
 
 const indexRouter=require('./routes/index');
 const userRouter=require('./routes/user');
+const taskRouter=require('./routes/task')
+const {header}=require("express-validator")
 
 app.use(cors())
 app.use(bodyparser.json())
@@ -19,6 +21,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(incomingrequest);
 app.use("/api/s1",indexRouter);
 app.use("/api/s1/user",userRouter);
+app.use("/api/s1/task",taskRouter);
 
 
 app.listen(process.env.PORT,()=>{
