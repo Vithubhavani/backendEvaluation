@@ -52,8 +52,8 @@ router.get("/assignees", authMiddleware, async (req, res) => {
 });
 
 
-router.get("/public/:id", async(req,res)=>{
-    const {id}=req.params;
+router.get("/:taskId", async(req,res)=>{
+    const {taskId}=req.params;
     const task=await Task.findById(id);
     if(!task){
         return res.status(404).json({message:"Task not found"})
