@@ -12,7 +12,7 @@ const cors=require("cors")
 dotenv.config();
 const app = express();
 app.use(cors({
-    origin: 'https://frontend-final-evaluation-gp6ngsk9a-vithubhavanis-projects.vercel.app/',  
+    origin: 'https://frontend-final-evaluation.vercel.app/',  
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     credentials: true,  
   }))
