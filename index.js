@@ -11,13 +11,14 @@ const cors=require("cors")
 
 dotenv.config();
 const app = express();
+app.use(cors())
 
 const indexRouter=require('./routes/index');
 const userRouter=require('./routes/user');
 const taskRouter=require('./routes/task')
 const {header}=require("express-validator")
 
-app.use(cors())
+
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(incomingrequest);
