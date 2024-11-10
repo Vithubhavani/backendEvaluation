@@ -1,9 +1,9 @@
 const express = require("express");
 const mongoose=require('mongoose');
 const dotenv = require("dotenv");
-const fs = require("fs");
+// const fs = require("fs");
 const bodyparser=require("body-parser")
-const { incomingrequest } = require("./moddleware/index");
+const {incomingrequest}=require('./moddleware/index')
 const cors=require("cors")
 
 dotenv.config();
