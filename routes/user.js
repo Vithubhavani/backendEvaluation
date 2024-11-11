@@ -18,7 +18,7 @@ if(ifUserExists){
     return res.status(400).json({message:"user already exists"});
 }
 
-const hashedPassword=await bcrypt.hash(password,10);
+const hashedPassword=await bcryptjs.hash(password,10);
 const user=new User({name,email,password:hashedPassword});
 await user.save();
 res.status(201).json({message:"user created successfully"})
@@ -84,7 +84,7 @@ router.put("/update", [
     }
 
     if (oldPassword) {
-        const isMatch = await bcrypt.compare(oldPassword, user.password);
+        const isMatch = await bcryptjs.compare(oldPassword, user.password);
         if (!isMatch) {
             return res.status(400).json({ message: "Old password is incorrect" });
         }
@@ -92,7 +92,7 @@ router.put("/update", [
 
     const updateData = {};
     if (newPassword) {
-        updateData.password = await bcrypt.hash(newPassword, 10); // Hash the new password
+        updateData.password = await bcryptjs.hash(newPassword, 10); // Hash the new password
     }
     if (name) {
         updateData.name = name;
