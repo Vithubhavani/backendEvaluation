@@ -8,7 +8,11 @@ const cors=require("cors")
 
 dotenv.config();
 const app = express();
-app.use(cors())
+app.use(cors({
+    origin: 'https://frontend-final-evaluation.vercel.app', 
+    methods: 'GET, POST, PUT, DELETE',
+    credentials: true,  
+}));
 
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended:true}));
